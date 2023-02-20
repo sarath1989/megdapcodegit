@@ -1,0 +1,14 @@
+librosa~=0.9.1
+numpy~=1.10.1
+webrtcvad~=2.0.10
+torch~=1.0.1
+scipy~=1.2.1
+typing_extension~=4.4.0
+matplotlib~=3.0.0
+tqdm~=4.64.1
+umap-learn~=0.5.3
+pyannote.audio~=2.1.1
+configparser~=5.0.2
+args~=0.1.0
+audioread~=3.0.0
+
