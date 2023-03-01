@@ -8,9 +8,11 @@ if __name__ == "__main__":
     config = conf.init()
     parser = argparse.ArgumentParser()
 
-    parser.add_argument(config['OPTIONS']['algo'], nargs='?',choices=['librosa', 'pyannote','both','refcompare'],help="Choose the algorithm:'librosa,'pyannote','both','refcompare'")
+    parser.add_argument(config['OPTIONS']['algo'], nargs='?',choices=['librosa', 'pyannote','both'],help="Choose the algorithm:'librosa,'pyannote','both','refcompare'")
     parser.add_argument(config['OPTIONS']['mode'], nargs='+', choices=['fullcompare', 'refcompare'],help="Choose the mode:'fullcompare','refcompare'")
     parser.add_argument(config['OPTIONS']['refs'], nargs='+',type=int,help="The reference number to be compared")
+    parser.add_argument(config['OPTIONS']['min'], nargs='+',type=int,help="The min number to be compared")
+    parser.add_argument(config['OPTIONS']['max'], nargs='+',type=int,help="The max number to be compared")
 
     args = parser.parse_args()
     if args.algo == 'both':
@@ -21,7 +23,7 @@ if __name__ == "__main__":
         pa.pyannote_alg()
     elif args.mode == ['refcompare']:
         val = args.refs
-        if args.refs is not None:
-            pc.pyannote_ref(val[0])
-        else:
-            pc.pyannote_ref(2)
+        min_no = args.min
+        max_no = args.max
+        pc.pyannote_ref(val[0],min_no[0],max_no[0])
+
