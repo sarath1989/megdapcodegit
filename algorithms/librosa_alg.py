@@ -52,7 +52,7 @@ def librosa_alg():
                         grp_dict.update(sim_dict)
                         print(f"Other groups in dictionary{grp_dict}")
                 report_lines.append(f"{wavs[from_cmp_idx]['filename']}, {wavs[to_cmp_idx]['filename']},"
-                                    f"{round(utt_sim_matrix[0][0] * 100, 2)}%,{from_cmp_idx+1,to_cmp_idx+1} "
+                                    f"{round(utt_sim_matrix[0][0] * 100, 2)}%,{from_cmp_idx+1,to_cmp_idx+1},"
                                     f"{result}")
         report_lines.append("*" * 50)
         grp_csv.grping(speaker,wavs,grp_dict,sim_grp)

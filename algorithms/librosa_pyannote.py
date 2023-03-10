@@ -23,7 +23,7 @@ def lib_pyannote():
                 print("compare", from_cmp_idx, to_cmp_idx)
                 print("compare", wavs[from_cmp_idx]['filename'], wavs[to_cmp_idx]['filename'])
                 log.logger.info(f"Comparing two files namely,{wavs[from_cmp_idx]['filename']} and {wavs[to_cmp_idx]['filename']}")
-                embedded_data_f1, embedded_data_f2, preprocess_data = dm.check_availability(
+                embedding_data_f1,embedding_data_f2,preprocess_data = dm.check_availability(
                     wavs[from_cmp_idx], wavs[to_cmp_idx])
                 utt_sim_matrix = cmp.comparison(preprocess_data, wavs[from_cmp_idx], wavs[to_cmp_idx])
                 print(f"Similarity: {round(utt_sim_matrix[0][0] * 100, 2)}%")
@@ -60,7 +60,7 @@ def lib_pyannote():
                         grp_dict.update(sim_dict)
                         print(f"Other groups in dictionary{grp_dict}")
                 report_lines.append(f"{wavs[from_cmp_idx]['filename']}, {wavs[to_cmp_idx]['filename']},"
-                                        f"{round(dist * 100, 2)}%,{round(utt_sim_matrix[0][0] * 100, 2)}%,{grp}, "
+                                        f"{round(dist*100,2)}%,{round(utt_sim_matrix[0][0] * 100, 2)}%,{grp}, "
                                         f"{result}")
         report_lines.append("*" * 50)
         grping(speaker,wavs,grp_dict,sim_grp)

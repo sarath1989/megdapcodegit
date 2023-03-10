@@ -16,7 +16,7 @@ def pyannote_alg():
     for speaker, wavs in files.items():
         report_lines.append(f"Speaker: {speaker.split('_')[0]}")
         report_lines.append("*" * 50)
-        report_lines.append("File1, File2, Similarity Score, Distance")
+        report_lines.append("File1, File2, Distance Score, Distance")
         for from_cmp_idx, wav in enumerate(wavs[:-1]):
             for to_cmp_idx in range(from_cmp_idx + 1, len(wavs)):
                 print("compare", from_cmp_idx, to_cmp_idx)
@@ -50,8 +50,8 @@ def pyannote_alg():
                         grp_dict = {x: [diff_grp[x]] for x in range(len(diff_grp))}
                         grp_dict.update(sim_dict)
                         print(f"Other groups in dictionary{grp_dict}")
-                    report_lines.append(f"{wavs[from_cmp_idx]['filename']}, {wavs[to_cmp_idx]['filename']},"
-                                        f"{round(similarity_distance * 100, 2)}%, "
+                report_lines.append(f"{wavs[from_cmp_idx]['filename']}, {wavs[to_cmp_idx]['filename']},"
+                                        f"{round(dist * 100, 2)}%,{from_cmp_idx+1,to_cmp_idx+1} "
                                         f"{result}")
         report_lines.append("*" * 50)
         grp_csv.grping(speaker,wavs,grp_dict,sim_grp)
