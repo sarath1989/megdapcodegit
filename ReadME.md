@@ -1,2 +1,2 @@
 # Audio Comparison
-## Compares audio
+## Compares audio files to produce the similarity report
